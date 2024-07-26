@@ -1,0 +1,31 @@
+{
+	"name": "@chneau/elysia-logger",
+	"version": "1.0.0",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"description": "Elysia logger plugin",
+	"keywords": ["elysia", "logger"],
+	"author": "chneau",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/chneau/elysia-logger"
+	},
+	"files": ["dist"],
+	"scripts": {
+		"build": "bun _build.ts",
+		"npm:publish": "bun run build && npm publish",
+		"npm:publish:dry-run": "bun run build && npm publish --dry-run",
+		"upgrade": "npm-check-updates --upgrade --install=always --packageManager=bun",
+		"check": "biome check --write --unsafe .",
+		"lint": "tsc --noEmit"
+	},
+	"dependencies": {
+		"elysia": "^1.1.4"
+	},
+	"devDependencies": {
+		"@types/bun": "^1.1.6",
+		"bun-plugin-dts": "^0.2.3",
+		"typescript": "^5.5.4"
+	}
+}
