@@ -20,3 +20,11 @@ const app = new Elysia().use(logger()).listen(8080);
 --> POST /login 200 in 5 ms
 /*
 ```
+
+## Changelog
+
+### [1.0.1] - 2024-08-03
+
+#### Fixed
+
+- Package npm link.
