@@ -23,6 +23,16 @@ const app = new Elysia().use(logger()).listen(8080);
 
 ## Changelog
 
+### [1.0.2] - 2024-08-08
+
+### Added
+
+- Tests.
+
+#### Fixed
+
+- Properly log error requests.
+
 ### [1.0.1] - 2024-08-03
 
 #### Fixed
