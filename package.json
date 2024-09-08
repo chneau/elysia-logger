@@ -24,10 +24,10 @@
 		"test": "bun test --watch"
 	},
 	"dependencies": {
-		"elysia": "^1.1.5"
+		"elysia": "^1.1.12"
 	},
 	"devDependencies": {
-		"@types/bun": "^1.1.6",
+		"@types/bun": "^1.1.8",
 		"bun-plugin-dts": "^0.2.3",
 		"typescript": "^5.5.4"
 	}
