@@ -4,7 +4,7 @@ import packageJson from "./package.json";
 
 await $`rm -rf dist`;
 
-await Bun.build({
+const result = await Bun.build({
 	entrypoints: ["src/index.ts"],
 	external: Object.keys(packageJson.dependencies),
 	outdir: "dist",
@@ -12,3 +12,5 @@ await Bun.build({
 	minify: true,
 	plugins: [dts({ output: { noBanner: !0 } })],
 });
+
+console.log(result);
