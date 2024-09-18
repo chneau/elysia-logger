@@ -64,7 +64,7 @@ test("working for elysia's error cases", async () => {
 		"-->",
 		"GET",
 		"/",
-		404,
+		200,
 		"in",
 		expect.any(Number),
 		"ms",

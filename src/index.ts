@@ -7,7 +7,7 @@ export const logger = ({ methods = ["GET", "PUT", "POST", "DELETE"] } = {}) =>
 			if (!methods.includes(ctx.request.method)) return;
 			console.log("<--", ctx.request.method, ctx.path);
 		})
-		.onAfterResponse({ as: "global" }, (ctx) => {
+		.onAfterHandle({ as: "global" }, (ctx) => {
 			if (!methods.includes(ctx.request.method)) return;
 			console.log(
 				"-->",
@@ -16,6 +16,18 @@ export const logger = ({ methods = ["GET", "PUT", "POST", "DELETE"] } = {}) =>
 				ctx.set.status ?? Number.NaN,
 				"in",
 				Date.now() - ctx.start,
+				"ms",
+			);
+		})
+		.onError({ as: "global" }, (ctx) => {
+			if (!methods.includes(ctx.request.method)) return;
+			console.log(
+				"-->",
+				ctx.request.method,
+				ctx.path,
+				ctx.set.status,
+				"in",
+				ctx.start ? Date.now() - ctx.start : Number.NaN,
 				"ms",
 			);
 		});
