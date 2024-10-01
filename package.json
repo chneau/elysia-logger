@@ -1,6 +1,6 @@
 {
 	"name": "@chneau/elysia-logger",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"description": "Elysia logger plugin",
@@ -17,15 +17,14 @@
 		"npm:fix": "npm pkg fix",
 		"npm:publish": "bun run build && npm publish",
 		"npm:publish:dry-run": "bun run build && npm publish --dry-run",
-		"upgrade": "npm-check-updates --upgrade --install=always --packageManager=bun",
-		"check": "bun run clean; biome check --write --unsafe .",
-		"lint": "tsc --noEmit",
+		"upgrade": "bun update --latest",
+		"check": "biome check --write --unsafe .",
+		"lint": "tsc",
 		"clean": "rm -rf dist",
-		"test": "bun test --watch"
+		"test": "bun test --watch",
+		"all": "bun run upgrade; bun run check; bun run lint"
 	},
-	"dependencies": {
-		"elysia": "^1.1.15"
-	},
+	"dependencies": { "elysia": "^1.1.17" },
 	"devDependencies": {
 		"@types/bun": "^1.1.10",
 		"bun-plugin-dts": "^0.2.3",
