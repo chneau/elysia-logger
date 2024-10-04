@@ -1,6 +1,6 @@
 {
 	"name": "@chneau/elysia-logger",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"description": "Elysia logger plugin",
@@ -24,7 +24,9 @@
 		"test": "bun test --watch",
 		"all": "bun run upgrade; bun run check; bun run lint"
 	},
-	"dependencies": { "elysia": "^1.1.17" },
+	"dependencies": {
+		"elysia": "^1.1.18"
+	},
 	"devDependencies": {
 		"@types/bun": "^1.1.10",
 		"bun-plugin-dts": "^0.2.3",
