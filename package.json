@@ -1,6 +1,6 @@
 {
 	"name": "@chneau/elysia-logger",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"description": "Elysia logger plugin",
@@ -15,8 +15,8 @@
 	"scripts": {
 		"build": "bun _build.ts",
 		"npm:fix": "npm pkg fix",
-		"npm:publish": "bun run build && npm publish",
-		"npm:publish:dry-run": "bun run build && npm publish --dry-run",
+		"npm:publish": "bun run build && bun publish",
+		"npm:publish:dry-run": "bun run build && bun publish --dry-run",
 		"upgrade": "bun update --latest",
 		"check": "deno fmt --use-tabs --quiet; oxlint --fix-dangerously --quiet; biome check --write --unsafe .",
 		"lint": "tsc",
