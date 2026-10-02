@@ -1,5 +1,3 @@
-
-
 # elysia-logger
 
 ## Installation
@@ -24,6 +22,17 @@ const app = new Elysia().use(logger()).listen(8080);
 ```
 
 ## Changelog
+
+### [1.0.11] - 2026-10-02
+
+#### Fixed
+
+- Log the real response status for `status()`, `set.status`, not found, and
+  thrown errors.
+
+#### Added
+
+- Tests covering the log format, method filtering, and status codes.
 
 ### [1.0.2] - 2024-08-08
 

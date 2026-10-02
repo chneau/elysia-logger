@@ -1,35 +1,50 @@
 {
 	"name": "@chneau/elysia-logger",
-	"version": "1.0.10",
+	"version": "1.0.11",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"description": "Elysia logger plugin",
-	"keywords": ["elysia", "logger"],
+	"keywords": [
+		"elysia",
+		"logger"
+	],
 	"author": "chneau",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/chneau/elysia-logger.git"
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"build": "bun _build.ts",
 		"npm:fix": "npm pkg fix",
 		"npm:publish": "bun run build && bun publish",
 		"npm:publish:dry-run": "bun run build && bun publish --dry-run",
 		"upgrade": "bun update --latest",
-		"check": "deno fmt --use-tabs --quiet; oxlint --fix-dangerously --quiet; biome check --write --unsafe .",
-		"lint": "tsc",
+		"check": "bun run --sequential --no-exit-on-error check:clean check:deno check:oxlint check:biome check:export lint",
+		"lint": "tsc --noEmit",
 		"clean": "rm -rf dist",
 		"test": "bun test --watch",
-		"all": "bun run upgrade; bun run check; bun run lint"
+		"all": "bun run --sequential --no-exit-on-error upgrade check",
+		"check:clean": "rm -rf dist out build",
+		"check:deno": "deno fmt --use-tabs --quiet",
+		"check:oxlint": "oxlint --fix-dangerously --fix-suggestions --fix --quiet",
+		"check:biome": "timeout 3s biome check --write --unsafe --vcs-enabled=true --vcs-client-kind=git --vcs-use-ignore-file=true .",
+		"check:export": "ts-unused-exports tsconfig.json"
 	},
 	"dependencies": {
-		"elysia": "^1.1.25"
+		"elysia": "^1.4.30"
 	},
 	"devDependencies": {
-		"@types/bun": "^1.1.13",
-		"bun-plugin-dts": "^0.3.0",
-		"typescript": "^5.6.3"
+		"@types/bun": "^1.4.2",
+		"bun-plugin-dts": "^0.4.0",
+		"typescript": "^7.0.2"
+	},
+	"overrides": {
+		"dts-bundle-generator": {
+			"typescript": "~5.9.3"
+		}
 	}
 }
