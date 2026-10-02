@@ -1,5 +1,4 @@
 import { $ } from "bun";
-import dts from "bun-plugin-dts";
 import packageJson from "./package.json";
 
 await $`rm -rf dist`;
@@ -10,7 +9,8 @@ const result = await Bun.build({
 	outdir: "dist",
 	target: "node",
 	minify: true,
-	plugins: [dts({ output: { noBanner: !0 } })],
 });
 
 console.log(result);
+
+await $`bunx tsc --ignoreConfig --declaration --emitDeclarationOnly --outDir dist --module esnext --moduleResolution bundler --target esnext --skipLibCheck src/index.ts`;

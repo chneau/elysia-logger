@@ -23,6 +23,13 @@ const app = new Elysia().use(logger()).listen(8080);
 
 ## Changelog
 
+### [1.0.12] - 2026-10-02
+
+#### Changed
+
+- Generate type declarations with `tsc` directly, removing `bun-plugin-dts` and
+  its TypeScript 5 override.
+
 ### [1.0.11] - 2026-10-02
 
 #### Fixed
